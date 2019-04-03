@@ -1,6 +1,6 @@
 node{
 	stage('SCM Checkout'){
-	git credentialsId: '704e8946-62cb-463c-b0ad-c03bf5b21039', url: 'https://github.com/Crustacean/webApp.git'
+	git credentialsId: '704e8946-62cb-463c-b0ad-c03bf5b21039', url: 'https://github.com/Crustacean/triedwebdeploy.git'
 	}
 	stage('mvn package'){
 	def mvnHome = tool name: 'M3', type: 'maven'
