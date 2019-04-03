@@ -1,6 +1,6 @@
 node{
 	stage('SCM Checkout'){
-	git credentialsId: '704e8946-62cb-463c-b0ad-c03bf5b21039', url: 'https://github.com/Crustacean/triedwebdeploy.git'
+	git credentialsId: '704e8946-62cb-463c-b0ad-c03bf5b21039', url: 'https://github.com/Crustacean/tryWebDeploy.git'
 	}
 	stage('mvn package'){
 	def mvnHome = tool name: 'M3', type: 'maven'
@@ -18,14 +18,6 @@ node{
 	bat "docker push em22435/webapp:1.0.${BUILD_NUMBER}"
 	}
 	stage('Run Container on Dev Env'){
-	bat "docker run -p 9180:8080 em22435/webapp:1.0.${BUILD_NUMBER}"
+	bat "docker container run -p 9180:8080 -d em22435/webapp:1.0.${BUILD_NUMBER}"
 	}
 }
-
-
-
-// Kill Agent
-// Input Step
-//timeout(time: 15, unit: "SECONDS") {
-    //input message: 'Do you want to approve the deploy in production?'
-//}
