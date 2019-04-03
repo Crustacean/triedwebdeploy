@@ -18,7 +18,7 @@ node{
 	bat "docker push em22435/webapp:1.0.${BUILD_NUMBER}"
 	}
 	stage('Run Container on Dev Env'){
-	bat "docker run --rm -p 9180:8080 em22435/webapp:1.0.${BUILD_NUMBER}"
+	bat "docker run -p 9180:8080 em22435/webapp:1.0.${BUILD_NUMBER}"
 	}
 }
 
